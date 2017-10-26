@@ -14,7 +14,7 @@ let server = http.createServer(function (req, res) {
 		res.end('Hello messala.\n');
 	}).catch(function (err) {
 		res.writeHead(500, { 'Content-Type': 'text/plain' });
-		res.end(err);
+		res.end(JSON.stringify(err));
 	});
 });
 server.listen(1337);
