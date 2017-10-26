@@ -6,7 +6,7 @@ const logger = log4js.getLogger();
 logger.level = 'trace';
 
 let server = http.createServer(function (req, res) {
-	logger.trace('requested.');
+	logger.trace('requested.' + '[' + req.method + ']' + req.url);
 	res.writeHead(200, { 'Content-Type': 'text/plain' });
 	res.end('Hello messala.\n');
 });
