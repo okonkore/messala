@@ -10,9 +10,11 @@ let server = http.createServer(function (req, res) {
 
 	let model = controller.getModel(req);
 	model(req, res).then(function (req, res) {
+		logger.error('success');
 		res.writeHead(200, { 'Content-Type': 'text/plain' });
 		res.end('Hello messala.\n');
 	}).catch(function (err) {
+		logger.error('error');
 		res.writeHead(500, { 'Content-Type': 'text/plain' });
 		res.end(JSON.stringify(err));
 	});
