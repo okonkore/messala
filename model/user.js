@@ -4,7 +4,7 @@ logger.level = 'trace';
 
 module.exports = function (req, res) {
     return new Promise(function (resolve, reject) {
-        logger.trace('user' + req.url);
+        logger.trace('user');
         resolve(req, res);
     });
 }
