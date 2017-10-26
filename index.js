@@ -8,11 +8,10 @@ logger.level = 'trace';
 let server = http.createServer(function (req, res) {
 	logger.trace('requested.' + '[' + req.method + ']' + req.url);
 
-	let model = controller.getModel(req);
-	model(req, res).then(function (_req, _res) {
+	let model = controller.getModel(req, res);
+	model.then(function (_req, _res) {
 		logger.trace('success');
-		logger.trace(_res);
-		logger.trace(res);
+		logger.trace(JSON.stringify(_res));
 		res.writeHead(200, { 'Content-Type': 'text/plain' });
 		res.end('Hello messala.\n');
 	}).catch(function (err) {
