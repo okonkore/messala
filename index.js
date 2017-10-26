@@ -12,6 +12,9 @@ let server = http.createServer(function (req, res) {
 	model(req, res).then(function (req, res) {
 		res.writeHead(200, { 'Content-Type': 'text/plain' });
 		res.end('Hello messala.\n');
+	}).catch(function () {
+		res.writeHead(500, { 'Content-Type': 'text/plain' });
+		res.end('error.\n');
 	});
 });
 server.listen(1337);
