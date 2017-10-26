@@ -11,8 +11,8 @@ let server = http.createServer(function (req, res) {
 	let model = controller.getModel(req);
 	model(req, res).then(function (_req, _res) {
 		logger.trace('success');
-		logger.trace(JSON.stringify(res));
-		logger.trace(JSON.stringify(_res));
+		logger.trace(_res);
+		logger.trace(res);
 		res.writeHead(200, { 'Content-Type': 'text/plain' });
 		res.end('Hello messala.\n');
 	}).catch(function (err) {
