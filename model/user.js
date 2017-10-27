@@ -6,7 +6,7 @@ const uuidGenerator = require('node-uuid');
 
 module.exports = function (req, res) {
     return new Promise(function (resolve, reject) {
-        let uuid = uuidGenerator.v1();
+        let uuid = uuidGenerator.v4();
         client.set('user:' + uuid, uuid, function () {
             resolve('uuid:' + uuid);
         });
