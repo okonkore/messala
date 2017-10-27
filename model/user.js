@@ -4,6 +4,8 @@ logger.level = 'trace';
 
 module.exports = function (req, res) {
     return new Promise(function (resolve, reject) {
-        resolve('messala user');
+        setTimeout(function () {
+            resolve('messala user');
+        }, 200);
     });
 }
